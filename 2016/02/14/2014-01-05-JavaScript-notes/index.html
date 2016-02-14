@@ -1,0 +1,797 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Eureka, Blog" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="##delete##
+delete 运算符删除用户定义的对象属性或者方法的引用delete o.name
+注：delete o.toString 将引发错误，因为toString（）是原始的ECMAScript方法。
+delete操作符可以删除对象，对象属性和特定index的数组元素。
+
+delete obj；
+delete obj.property;
+delete obj[index];
+
+de">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习笔记">
+<meta property="og:url" content="http://geebar.github.io/2016/02/14/2014-01-05-JavaScript-notes/index.html">
+<meta property="og:site_name" content="Eureka!">
+<meta property="og:description" content="##delete##
+delete 运算符删除用户定义的对象属性或者方法的引用delete o.name
+注：delete o.toString 将引发错误，因为toString（）是原始的ECMAScript方法。
+delete操作符可以删除对象，对象属性和特定index的数组元素。
+
+delete obj；
+delete obj.property;
+delete obj[index];
+
+de">
+<meta property="og:updated_time" content="2015-08-02T13:13:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习笔记">
+<meta name="twitter:description" content="##delete##
+delete 运算符删除用户定义的对象属性或者方法的引用delete o.name
+注：delete o.toString 将引发错误，因为toString（）是原始的ECMAScript方法。
+delete操作符可以删除对象，对象属性和特定index的数组元素。
+
+delete obj；
+delete obj.property;
+delete obj[index];
+
+de">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> JS学习笔记 | Eureka! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Eureka!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JS学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-14T17:28:56+08:00" content="2016-02-14">
+              2016-02-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="3C_21-_uFFFC0-_3E"><a href="#3C_21-_uFFFC0-_3E" class="headerlink" title=""></a></h1><p>##delete##</p>
+<p>delete 运算符删除用户定义的对象属性或者方法的引用<br>delete o.name</p>
+<p><strong>注：delete o.toString 将引发错误，因为toString（）是原始的ECMAScript方法。</strong></p>
+<p>delete操作符可以删除对象，对象属性和特定index的数组元素。</p>
+<ul>
+<li>delete obj；</li>
+<li>delete obj.property;</li>
+<li>delete obj[index];</li>
+</ul>
+<p>delete操作符成功后，元素或者属性的值为undefined。可以删除的返回true；无法删除的返回false；<br>delete操作符只可以删除模糊声明的变量，无法删除用var声明的变量和预定义的变量。</p>
+<pre><code>x = 42;
+var y = 43;
+myobj = new Number();
+myobj.h = 4; // create property h
+delete x; // returns true (can delete if declared implicitly)
+delete y; // returns false (cannot delete if declared with var)
+delete Math.PI; // returns false (cannot delete predefined properties)
+delete myobj.h; // returns true (can delete user-defined properties)
+delete myobj; // returns true (can delete if declared implicitly)
+</code></pre><p><em>delete删除数组元素，元素被删除，其后元素和数组长度不受影响。被删除元素可以被寻址，返回undefined（与赋值undefined不同）</em></p>
+<p>##void##</p>
+<p>void运算符返回undefined，通常用于避免输出不应该输出的值。比如：</p>
+<p><a href="javascript:window.open(" about:blank")"="" target="_blank" rel="external">点这里（没有void）</a></p>
+<pre><code>&lt;a href=&quot;javascript:window.open(&quot;about:blank&quot;)&quot;&gt;点这里（没有void）&lt;/a&gt;
+</code></pre><p>屏幕显示object(Firefox中显示object，Chrome中均为打开新标签页);</p>
+<p><a href="javascript:window.open(" about:blank")"="" target="_blank" rel="external">点这里（有void）</a></p>
+<pre><code>&lt;a href=&quot;javascript:void(window.open(&quot;about:blank&quot;))&quot;&gt;点这里（有void）&lt;/a&gt;
+</code></pre><p>返回为undefined，屏幕不显示。</p>
+<p><strong>注：没有返回值的函数真正返回的都是undefined</strong></p>
+<p>##prototype##</p>
+<p>所有实例对象需要共享的属性和方法，都放在prototype里面；那些不需要共享的属性和方法，就放在构造函数里面。</p>
+<p>##全局变量的使用##</p>
+<ul>
+<li><p>全局变量在任何函数中都可以访问，所以在程序运行过程中全局变量被读写的顺序从源代码中是看不出来的。而对局部变量的访问不仅局限在一个函数内部，而且局限在一次函数调用之中，从函数的源代码很容易看出访问的先后顺序是怎样的。<em>代码可维护性需求。</em></p>
+</li>
+<li><p>能用函数传参代替的就不要用全局变量。——函数出现的目的本就是这样的吧。<em>代码可测试性需求。</em></p>
+</li>
+</ul>
+<p>##JS解析顺序##</p>
+<p>依照<script\>标签，顺序执行</script\></p>
+<p><strong>注：DOM操作的函数必须要在window.onload之后执行</strong></p>
+<pre><code>window.onload = function(){
+ var text = document.getElementById(&quot;text&quot;);
+}
+</code></pre><p><em>预编译期</em>对所有声明的变量和函数进行处理。——也叫声明提升</p>
+<pre><code>alert(a); //undefined
+var a = 1;
+alert(a); //1
+
+f(); //调用函数，弹出hello
+function f(){
+alert(&quot;hello&quot;);
+}
+</code></pre><p>##typeof用途##</p>
+<p>检测对象是否已经定义或者是否已经被赋值。</p>
+<pre><code>typeof foo !== &apos;undefined&apos;
+</code></pre><p>检测对象类型使用Object.prototype.toString方法</p>
+<pre><code>Object.prototype.toString.call
+</code></pre><p>instanceof 用来比较两个操作数的构造函数</p>
+<pre><code>//如果设置Bar.prototype 为函数Foo本身，而不是Foo构造函数的一个实例
+Bar.prototype = Foo;
+new Bar() instanceof Foo; //false
+</code></pre><p>【更多关于类型检测的技巧，明日更新。】</p>
+<p>##类型转换##</p>
+<p>转换为字符串</p>
+<pre><code>&apos;&apos; + 10 === &apos;10&apos;; //true
+</code></pre><p>转换为数字</p>
+<pre><code>+ &apos;10&apos; === 10; //true
+</code></pre><p>使用一元的加号操作符，可以把字符串转换为数字。</p>
+<p>转换为布尔型</p>
+<p>使用否操作符两次<br>     !!’foo’; //true</p>
+<p>##伪装的eval##</p>
+<p>定时函数setTimeout和setInterval都可以接受字符串作为它们的第一个参数。<br>这个字符串总是在全局作用域中执行，因此eval在这种情况下没有被直接调用。<br>所以，将其第一个参数应该为函数对象。</p>
+<p>##定时器setTimeout和setInterval函数##</p>
+<p>setTimeout —— 返回ID标识，并且计划在将来一定时间后调用函数foo。foo只执行一次。</p>
+<p>setInterval —— 每隔一定时间执行一次，会导致回调函数堆积。</p>
+<p><em>setTimeout 的第一个参数是函数对象，一个常犯的错误是这样的 setTimeout(foo(), 1000)，<br>这里回调函数是 foo 的返回值，而不是foo本身。 大部分情况下，这是一个潜在的错误，<br>因为如果函数返回 undefined，setTimeout 也不会报错。</em></p>
+<p><strong> eval 只在被直接调用并且调用函数就是 eval 本身时，才在当前作用域中执行。</strong></p>
+<p>###处理可能的阻塞调用###</p>
+<p>最简单最可控的是在回调函数内部使用setTimeout函数。</p>
+<pre><code>function foo(){
+ //阻塞执行1秒
+ setTimeout(foo,1000);
+}
+foo();
+</code></pre><p><em>应该避免使用 setInterval，因为它的定时执行不会被 JavaScript 阻塞。</em></p>
+<p>Function.length是形式参数个数；arguments.length是实际参数个数。</p>
+<p>##事件模型</p>
+<p>###注册事件三种方式</p>
+<ul>
+<li>EventTarget.addEventListener</li>
+<li>HTML attribute //出于可读性和可维护性的考虑不推荐</li>
+<li>DOM element properties //只能帮定一个元素一个事件</li>
+</ul>
+<p>注册事件监听<br>myButton.addEventListener()<br>myButton.onclick = function… (利用event的属性)</p>
+<p>###捕获和冒泡</p>
+<p>捕获是从上向下寻找事件响应；冒泡是从下向上寻找事件响应。</p>
+<p>在 2 级 DOM 中，事件传播三个阶段：</p>
+<ul>
+<li>第一，捕获阶段。事件从 Document 对象沿着文档树向下传递给目标节点。如果目标的任何一个先辈专门注册了捕获事件句柄，那么在事件传播过程中运行这些句柄。</li>
+<li>第二个阶段发生在目标节点自身。直接注册砸目标上的适合的事件句柄将运行。这与 0 级事件模型提供的事件处理方法相似。</li>
+<li>第三，起泡阶段。在此阶段，事件将从目标元素向上传播回或起泡回 Document 对象的文档层次。</li>
+</ul>
+<p>##Ajax跨域访问解决方案</p>
+<p>ajax本身实际上是通过XMLHttpRequest对象来进行数据的交互，而浏览器出于安全考虑，不允许js代码进行跨域操作，所以就诞生了很多跨域的解决方案。当本域和子域间进行访问时最简单的就是设置document.domain，当不同域的访问，大概有下列方法：</p>
+<ul>
+<li><p>1.web端代理的方式，即用户访问A网站时所产生的对B网站的跨域访问请求均提交到A网站的指定页面，由该页面代替用户页面完成交互，从而返回合适的结果。</p>
+</li>
+<li><p>2.iframe，解决方案就是用window.location对象的hash属性，利用JS改变hash值网页不会刷新，可以这样实现通过JS访问hash值来做到通信，大体就是AB网站各嵌入一个对方网站的iframe，然后通过连续不断的监听hash值的变化来进行通信。比如A网站通过改变B网站iframe的hash后，B网站监听到hash的变化后就进行处理，这种方式需要开发者可以控制两个网站的代码。</p>
+</li>
+<li><p>3.通过script标签来请求，原理就是在本域内的A内生成一个JS标签，它的SRC指向请求的另外一个域的某个页面B，这个src里面通常会加一个A页面定义好的回调函数，B返回数据即可，可以直接返回调用这个回调函数，这种跨域的通信方式被称为<em>JSONP</em>，此方案存在的缺陷是，script的src属性完成该调用时采取的方式时get方式，如果请求时传递的字符串过大时，可能会无法正常运行。</p>
+</li>
+<li><p>4.window.name，window.name是一种解决跨域数据传输的新技术，通过在iframe中加载一个跨域的HTML文件，并且在HTML文件中设置window.name的值为需要传给接受者的数据，接收者就可以取得到window.name的值并且返回，比较关键的是同源策略的影响对location的控制不受限制，所以需要加载一个代理的页面来让发送页面读取window.name.</p>
+</li>
+<li><p>5.使用flash，原理是JavaScript将数据提交给本域下的 Flash，通过 Flash 中转去访问其他域的接口，只需要其他域的根目录下有一个crossdomain.xml文件，文件中设置允许所有域名或允许本域访问即可。</p>
+</li>
+</ul>
+<p>##闭包中的内存泄露<br>由于闭包会携带包含它的函数的作用域，因此会比其他函数占用更多的内存。过度使用闭包会导致内存占用过多，建议只在绝对必要时才使用闭包。</p>
+<pre><code>function assignHandler(){
+    var element = document.getElementById(&quot;someElement&quot;);
+    element.onclick = function (){
+        alert(element.id);
+    };
+}
+</code></pre><p>以上代码创建了一个element事件处理程序的闭包。匿名函数保存了对assignHandler()对象的引用，只要匿名函数存在，element的引用至少是1，因此element的占用的内存无法回收。</p>
+<p>将重复引用的变量设置为null，可以解除对DOM的引用，能回收其占用的内存。</p>
+<pre><code>function assignHandler(){
+    var element = document.getElementById(&quot;someElement&quot;);
+    var id = element.id; //消除变量循环引用
+    element.onclick = function (){
+        alert(id);
+    };
+    element = null;//解除对匿名函数的引用，释放内存
+}
+</code></pre>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/14/2014-01-05-High-Performance-JavaScript-notes/" rel="next" title="《高性能JavaScript》学习笔记">
+                <i class="fa fa-chevron-left"></i> 《高性能JavaScript》学习笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/14/2014-01-03-my-internet-resume/" rel="prev" title="简历">
+                简历 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar@2X.png"
+               alt="Eureka" />
+          <p class="site-author-name" itemprop="name">Eureka</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3C_21-_uFFFC0-_3E"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eureka</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
