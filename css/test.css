@@ -1,9 +1,0 @@
-/*声明 WebFont*/
-@font-face {
-  font-family: 'siyuan';
-  src: url("../fonts/webfonts/NotoSansCJKsc-Light.eot");
-  src: url("../fonts/webfonts/NotoSansCJKsc-Light.eot?#font-spider") format("embedded-opentype"), url("../fonts/webfonts/NotoSansCJKsc-Light.woff2") format("woff2"), url("../fonts/webfonts/NotoSansCJKsc-Light.woff") format("woff"), url("../fonts/webfonts/NotoSansCJKsc-Light.ttf") format("truetype"), url("../fonts/webfonts/NotoSansCJKsc-Light.svg") format("svg"); }
-
-body {
-  font-family: "siyuan", "Pingfang SC", "Noto Sans CJK SC Light", "SourceHanSansCN-ExtraLight", 思源黑体, "Microsoft Yahei", 微软雅黑, sans-serif;
-  font-weight: 100; }
